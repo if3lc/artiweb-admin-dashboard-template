@@ -56,7 +56,7 @@ a {
 }
 
 /*
-    Radius Style
+    Radius Shortcuts
 */
 .br-l {
     border-radius:10px;
@@ -69,10 +69,22 @@ a {
 }
 
 /*
-    Margin Style
+    Margin Shortcuts
 */
 .mb-l {
     margin-bottom:20px;
+}
+
+.mb-m {
+    margin-bottom:10px;
+}
+
+.mb-s {
+    margin-bottom:5px;
+}
+
+.mb-xs {
+    margin-bottom:3px;
 }
 
 .mt-l {
@@ -80,14 +92,18 @@ a {
 }
 
 .mr-l {
-    margin-right:10px;
+    margin-right:20px;
 }
 
 .mr-m {
-    margin-right:5px;
+    margin-right:10px;
 }
 
 .mr-s {
+    margin-right:5px;
+}
+
+.mr-xs {
     margin-right:3px;
 }
 
@@ -127,7 +143,7 @@ a {
 }
 
 /*
-    Buttons Style
+    Buttons
 */
 @mixin button($padding-tb, $padding-lr, $fs, $fw) {
     padding:$padding-tb $padding-lr;
@@ -140,6 +156,8 @@ a {
     font-size: $fs;
     font-weight: $fw;
     opacity: 0.9;
+    border:none;
+    outline: none;
 
     i {
         margin-right:5px;
@@ -341,7 +359,7 @@ input[type="text"], input[type="password"], input[type="date"], textarea, select
 }
 
 /*
-    Form Title Style
+    Form Title
 */
 .form-title {
     display:flex;
