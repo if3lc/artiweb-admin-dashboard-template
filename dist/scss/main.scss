@@ -1,46 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/*
-    Colors
-*/
-$black : #282828;
-$white : #ffffff;
+@import '_reset';
+@import '_colors';
+@import '_grid-system';
+@import '_shortcuts';
 
-$black-main : #323D4B;
-$black-500 : #3F4C5B;
-$black-400 : #7B8794;
-$black-300 : #CBD2D9;
-$black-200 : #E4E7EB;
-$black-100 : #F5F7FA;
-
-$purple-main : #7B61FF;
-$purple-500 : #7b61ff75;
-
-$red-main: #E83C3C;
-$blue-main: #007AFF;
-$orange-main: #FF9500;
-$green-main: #4CD964;
-
-/*
-    Reset
-*/
-* {
-    margin:0px;
-    padding:0px;
-    list-style: none;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-/*
-    Main Style
-*/
+//Main
 body {
     font-family: 'Poppins', sans-serif;
     font-size:14px;
     display:flex;
     color:$black;
-    background:$black-100;
+    background:$gray-100;
 }
 
 p {
@@ -55,102 +26,13 @@ a {
     }
 }
 
-/*
-    Radius Shortcuts
-*/
-.br-l {
-    border-radius:10px;
-}
-.br-m {
-    border-radius:5px;
-}
-.br-s {
-    border-radius:3px;
-}
-
-/*
-    Margin Shortcuts
-*/
-.mb-l {
-    margin-bottom:20px;
-}
-
-.mb-m {
-    margin-bottom:10px;
-}
-
-.mb-s {
-    margin-bottom:5px;
-}
-
-.mb-xs {
-    margin-bottom:3px;
-}
-
-.mt-l {
-    margin-top:20px;
-}
-
-.mr-l {
-    margin-right:20px;
-}
-
-.mr-m {
-    margin-right:10px;
-}
-
-.mr-s {
-    margin-right:5px;
-}
-
-.mr-xs {
-    margin-right:3px;
-}
-
-
-
-/*
-    Flex/Grid Shortcuts
-*/
-.f-sb {
-    display:flex;
-    justify-content: space-between;
-}
-
-.f-center {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.f-dc {
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-.f-dr {
-    display:flex !important;
-    flex-direction: row !important;
-
-}
-
-.g-center {
-    display:grid;
-    justify-items: center;
-    align-items: center;
-    width:100vw;
-    height:100vh;
-}
-
-/*
-    Buttons
-*/
+//Buttons
 @mixin button($padding-tb, $padding-lr, $fs, $fw) {
     padding:$padding-tb $padding-lr;
     display:flex;
     align-items: center;
-    background:$black-main;
-    width:fit-content;
+    background:$gray-main;
+    min-width: max-content;
     border-radius:3px;
     color:$white;
     font-size: $fs;
@@ -181,34 +63,16 @@ a {
     @include button(5px,10px,12px,400);
 }
 
-/*
-    Background Colors
-*/
-.bg-blue {
-    background:$blue-main;
-}
+//Background Colors
+.bg-blue { background:$blue-600; }
+.bg-orange { background:$orange-600; }
+.bg-green { background: $green-600; }
+.bg-red { background:$red-600; }
+.bg-purple { background:$purple-600; }
 
-.bg-orange {
-    background:$orange-main;
-}
-
-.bg-green {
-    background: $green-main;
-}
-
-.bg-red {
-    background:$red-main;
-}
-
-.bg-purple {
-    background:$purple-main;
-}
-
-/*
-    Panel Navigation
-*/
+//Panel Navigation
 .nav {
-    background:$black-main;
+    background:$gray-main;
     width:240px;
     height:100vh;
     overflow:auto;
@@ -236,7 +100,7 @@ a {
                 justify-content: space-between;
                 width:100%;
                 align-items: center;
-                border-top:1px solid $black-500;
+                border-top:1px solid $gray-800;
 
                 span {
                     display:flex;
@@ -248,7 +112,7 @@ a {
                 }
 
                 &:hover {
-                    background:$black-500;
+                    background:$gray-800;
                 }
             }
 
@@ -278,17 +142,15 @@ a {
     }
 }
 
-/*
-    Datatable
-*/
+//Datatable
 table.datatable {
     width:100%;
     border-collapse: collapse;
     border-radius:5px;
-    border:1px solid $black-200;
+    border:1px solid $gray-200;
 
     thead {
-        background:$black-main !important;
+        background:$gray-main !important;
         color:$white;
         font-size:16px;
         font-weight:600;
@@ -301,20 +163,18 @@ table.datatable {
 
     tbody {
         tr:nth-child(2n) {
-            background:$black-100;
+            background:$gray-100;
         }
 
         tr, td {
             &:hover {
-                background:$black-200;
+                background:$gray-200;
             }
         }
     }
 }
 
-/*
-    Panel Container
-*/
+//Panel Container
 .panel-container {
     padding:30px 30px 30px 270px;
     width:100%;
@@ -335,10 +195,9 @@ table.datatable {
     padding:20px;
 }
 
-/*
-    Form Elements
-*/
+//Form Elements
 label {
+    opacity:0.8;
     width:100%;
     font-size:12px;
     margin-bottom:3px;
@@ -347,20 +206,26 @@ label {
 input[type="text"], input[type="password"], input[type="date"], textarea, select {
     width:100%;
     padding:10px 10px;
-    border:1px solid $black-300;
+    border:1px solid $gray-300;
     border-radius:3px;
     font-family: 'Poppins', sans-serif;
+    outline: none;
 
     &:focus {
-        border:1px solid $purple-main;
-        box-shadow: 0px 0px 0px 3px $purple-500;
-        outline: none;
+        border:1px solid $purple-500;
+        box-shadow: 0px 0px 0px 5px $purple-200;
+    }
+
+    &.error {
+        border:1px solid $red-500;
+        
+        &:focus {
+            box-shadow:0px 0px 0px 5px $red-200; 
+        }
     }
 }
 
-/*
-    Form Title
-*/
+//Form Title
 .form-title {
     display:flex;
     flex-direction: column;
@@ -375,25 +240,7 @@ input[type="text"], input[type="password"], input[type="date"], textarea, select
     }
 }
 
-/*
-    Form Grid System
-*/
-.form-row {
-    display:flex;
-    width:100%;
-    margin:10px 0;
-
-    .form-col {
-        width:100%;
-        display:flex;
-        flex-direction: column;
-        padding:0 10px;
-    }
-}
-
-/*
-    Paginations
-*/
+//Paginations
 .pagination {
     display:flex;
 
@@ -403,19 +250,19 @@ input[type="text"], input[type="password"], input[type="date"], textarea, select
         display:flex;
         align-items: center;
         justify-content: center;
-        border:1px solid $black-300;
+        border:1px solid $gray-300;
         margin:0 5px;
         border-radius:3px;
 
         &.active {
             border:none;
-            background:$black-500;
+            background:$gray-500;
             color:$white;
         }
 
         &:hover {
-            border:1px solid $purple-main;
-            background:$purple-main;
+            border:1px solid $purple-600;
+            background:$purple-600;
             color:$white;
         }
     }
