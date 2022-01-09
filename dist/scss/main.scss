@@ -37,10 +37,10 @@ $green-main: #4CD964;
 */
 body {
     font-family: 'Poppins', sans-serif;
-    background:$black-100;
     font-size:14px;
     display:flex;
     color:$black;
+    background:$black-100;
 }
 
 p {
@@ -71,6 +71,14 @@ a {
 /*
     Margin Style
 */
+.mb-l {
+    margin-bottom:20px;
+}
+
+.mt-l {
+    margin-top:20px;
+}
+
 .mr-l {
     margin-right:10px;
 }
@@ -113,92 +121,46 @@ a {
 .g-center {
     display:grid;
     justify-items: center;
+    align-items: center;
+    width:100vw;
+    height:100vh;
 }
 
 /*
     Buttons Style
 */
-.button-l {
-    padding:10px 20px;
+@mixin button($padding-tb, $padding-lr, $fs, $fw) {
+    padding:$padding-tb $padding-lr;
     display:flex;
     align-items: center;
     background:$black-main;
     width:fit-content;
     border-radius:3px;
     color:$white;
-    font-size:16px;
-    font-weight:500;
+    font-size: $fs;
+    font-weight: $fw;
     opacity: 0.9;
 
     i {
-        margin-right:3px;
+        margin-right:5px;
     }
 
     &:hover {
         opacity:1;
+        color:$white;
     }
+}
+
+.button-l {
+    @include button(10px,20px,16px,600);
 }
 
 .button-m {
-    padding:8px 15px;
-    display:flex;
-    align-items: center;
-    background:$black-main;
-    width:fit-content;
-    border-radius:3px;
-    color:$white;
-    font-size:14px;
-    font-weight:500;
-    opacity: 0.9;
-
-    i {
-        margin-right:3px;
-    }
-
-    &:hover {
-        opacity:1;
-    }
+    @include button(8px,15px,14px,500);
 }
 
 .button-s {
-    padding:5px 10px;
-    display:flex;
-    align-items: center;
-    background:$black-main;
-    width:fit-content;
-    border-radius:3px;
-    color:$white;
-    font-size:12px;
-    font-weight:500;
-    opacity: 0.9;
-
-    i {
-        margin-right:3px;
-    }
-
-    &:hover {
-        opacity:1;
-    }
-}
-
-.button-icon-xs {
-    padding:5px 10px;
-    display:flex;
-    align-items: center;
-    background:$black-main;
-    width:fit-content;
-    border-radius:3px;
-    color:$white;
-    font-size:12px;
-    opacity: 0.9;
-
-    i {
-        margin-right:3px;
-    }
-
-    &:hover {
-        opacity:1;
-    }
+    @include button(5px,10px,12px,400);
 }
 
 /*
@@ -220,11 +182,9 @@ a {
     background:$red-main;
 }
 
-.bg-purble {
+.bg-purple {
     background:$purple-main;
 }
-
-
 
 /*
     Panel Navigation
@@ -268,6 +228,10 @@ a {
                         margin-right:5px;
                     }
                 }
+
+                &:hover {
+                    background:$black-500;
+                }
             }
 
             .sub-menu {
@@ -280,10 +244,52 @@ a {
                     
                     li {
                         margin:3px 0;
+
+                        a {
+                            opacity:0.9;
+
+                            &:hover {
+                                opacity:1;
+                            }
+                        }
                     }
                 }
             }
 
+        }
+    }
+}
+
+/*
+    Datatable
+*/
+table.datatable {
+    width:100%;
+    border-collapse: collapse;
+    border-radius:5px;
+    border:1px solid $black-200;
+
+    thead {
+        background:$black-main !important;
+        color:$white;
+        font-size:16px;
+        font-weight:600;
+    }
+
+    tr, td {
+        padding:10px;
+        vertical-align: center;
+    }
+
+    tbody {
+        tr:nth-child(2n) {
+            background:$black-100;
+        }
+
+        tr, td {
+            &:hover {
+                background:$black-200;
+            }
         }
     }
 }
@@ -294,29 +300,6 @@ a {
 .panel-container {
     padding:30px 30px 30px 270px;
     width:100%;
-
-    table {
-        width:100%;
-        border-collapse: collapse;
-        border-radius:5px;
-        border:1px solid $black-200;
-
-        thead {
-            background:$black-main;
-            color:$white;
-            font-size:16px;
-            font-weight:600;
-        }
-
-        tr:nth-child(2n) {
-            background:$black-200;
-        }
-
-        tr, td {
-            padding:10px;
-            vertical-align: center;
-        }
-    }
 }
 
 .form-container {
@@ -324,7 +307,37 @@ a {
     background:$white;
     width:100%;
     padding:20px;
-    margin-bottom:20px
+    margin-bottom:20px;
+}
+
+.login-container {
+    width:500px;
+    background:$white;
+    border-radius:5px;
+    padding:20px;
+}
+
+/*
+    Form Elements
+*/
+label {
+    width:100%;
+    font-size:12px;
+    margin-bottom:3px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], textarea, select {
+    width:100%;
+    padding:10px 10px;
+    border:1px solid $black-300;
+    border-radius:3px;
+    font-family: 'Poppins', sans-serif;
+
+    &:focus {
+        border:1px solid $purple-main;
+        box-shadow: 0px 0px 0px 3px $purple-500;
+        outline: none;
+    }
 }
 
 /*
@@ -333,7 +346,6 @@ a {
 .form-title {
     display:flex;
     flex-direction: column;
-    margin-bottom:20px;
 
     h4 {
         font-size:22px;
@@ -358,24 +370,6 @@ a {
         display:flex;
         flex-direction: column;
         padding:0 10px;
-
-        label {
-            font-size:12px;
-            margin-bottom:3px;
-        }
-
-        input[type="text"], input[type="password"], input[type="date"], textarea, select {
-            padding:10px 10px;
-            border:1px solid $black-300;
-            border-radius:3px;
-            font-family: 'Poppins', sans-serif;
-
-            &:focus {
-                border:1px solid $purple-main;
-                box-shadow: 0px 0px 0px 3px $purple-500;
-                outline: none;
-            }
-        }
     }
 }
 
