@@ -69,7 +69,24 @@ a {
 }
 
 /*
-    Flex Shortcuts
+    Margin Style
+*/
+.mr-l {
+    margin-right:10px;
+}
+
+.mr-m {
+    margin-right:5px;
+}
+
+.mr-s {
+    margin-right:3px;
+}
+
+
+
+/*
+    Flex/Grid Shortcuts
 */
 .f-sb {
     display:flex;
@@ -82,9 +99,88 @@ a {
     align-items: center;
 }
 
+.f-dc {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.f-dr {
+    display:flex !important;
+    flex-direction: row !important;
+
+}
+
+.g-center {
+    display:grid;
+    justify-items: center;
+}
+
 /*
     Buttons Style
 */
+.button-l {
+    padding:10px 20px;
+    display:flex;
+    align-items: center;
+    background:$black-main;
+    width:fit-content;
+    border-radius:3px;
+    color:$white;
+    font-size:16px;
+    font-weight:500;
+    opacity: 0.9;
+
+    i {
+        margin-right:3px;
+    }
+
+    &:hover {
+        opacity:1;
+    }
+}
+
+.button-m {
+    padding:8px 15px;
+    display:flex;
+    align-items: center;
+    background:$black-main;
+    width:fit-content;
+    border-radius:3px;
+    color:$white;
+    font-size:14px;
+    font-weight:500;
+    opacity: 0.9;
+
+    i {
+        margin-right:3px;
+    }
+
+    &:hover {
+        opacity:1;
+    }
+}
+
+.button-s {
+    padding:5px 10px;
+    display:flex;
+    align-items: center;
+    background:$black-main;
+    width:fit-content;
+    border-radius:3px;
+    color:$white;
+    font-size:12px;
+    font-weight:500;
+    opacity: 0.9;
+
+    i {
+        margin-right:3px;
+    }
+
+    &:hover {
+        opacity:1;
+    }
+}
+
 .button-icon-xs {
     padding:5px 10px;
     display:flex;
@@ -108,13 +204,27 @@ a {
 /*
     Background Colors
 */
-.purple-bg {
+.bg-blue {
+    background:$blue-main;
+}
+
+.bg-orange {
+    background:$orange-main;
+}
+
+.bg-green {
+    background: $green-main;
+}
+
+.bg-red {
+    background:$red-main;
+}
+
+.bg-purble {
     background:$purple-main;
 }
 
-.red-bg {
-    background:$red-main;
-}
+
 
 /*
     Panel Navigation
@@ -185,14 +295,6 @@ a {
     padding:30px 30px 30px 270px;
     width:100%;
 
-    .form-container {
-        border-radius:5px;
-        background:$white;
-        width:100%;
-        padding:20px;
-        margin-bottom:20px
-    }
-
     table {
         width:100%;
         border-collapse: collapse;
@@ -215,6 +317,14 @@ a {
             vertical-align: center;
         }
     }
+}
+
+.form-container {
+    border-radius:5px;
+    background:$white;
+    width:100%;
+    padding:20px;
+    margin-bottom:20px
 }
 
 /*
