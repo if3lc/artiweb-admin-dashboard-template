@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artiweb - Admin Panel</title>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -31,8 +33,8 @@
 <div class="nav">
     <ul class="nav-menu">
         <li>
-            <li>
-                <a href=""><span><i class="uil uil-credit-card-search"></i>Dashboard</span><i class="uil uil-angle-down"></i></a>
+            <li id="default">
+                <a href="#" class="toggle-menu"><span><i class="uil uil-credit-card-search"></i>Dashboard</span><i class="uil uil-angle-down"></i></a>
                 <div class="sub-menu">
                     <ul>
                         <li><a href="">Comamrce</a></li>
@@ -45,7 +47,16 @@
                 </div>
             </li>
         </li>
-        <li><a href=""><span><i class="uil uil-credit-card-search"></i>Applications</span><i class="uil uil-angle-down"></i></a></li>
+        <li>
+            <a href="" class="toggle-menu"><span><i class="uil uil-credit-card-search"></i>Applications</span><i class="uil uil-angle-down"></i></a>
+            <div class="sub-menu">
+                <ul>
+                    <li><a href="">Sub menu #1</a></li>
+                    <li><a href="">Sub menu #2</a></li>
+                    <li><a href="">Sub menu #3</a></li>
+                </ul>
+            </div>
+        </li>
         <li><a href=""><span><i class="uil uil-credit-card-search"></i>Elements</span><i class="uil uil-angle-down"></i></a></li>
         <li><a href=""><span><i class="uil uil-credit-card-search"></i>Forms</span><i class="uil uil-angle-down"></i></a></li>
         <li><a href=""><span><i class="uil uil-credit-card-search"></i>Widgets</span><i class="uil uil-angle-down"></i></a></li>
