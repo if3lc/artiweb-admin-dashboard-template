@@ -9,9 +9,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-size:14px;
-    display:flex;
     color:$black;
     background:$gray-100;
+    padding-top:45px;
 }
 
 p {
@@ -64,20 +64,31 @@ a {
 }
 
 //Background Colors
+.bg-white { background:$white; }
+.bg-black { background:$black; }
 .bg-blue { background:$blue-600; }
 .bg-orange { background:$orange-600; }
 .bg-green { background: $green-600; }
 .bg-red { background:$red-600; }
 .bg-purple { background:$purple-600; }
 
+//Text Colors
+.tc-white { color:$white; }
+.tc-black { color:$black; }
+.tc-blue { color:$blue-600; }
+.tc-orange { color:$orange-600; }
+.tc-green { color:$green-600; }
+.tc-red { color:$red-600; }
+.tc-purple { color:$purple-600; }
+
 //Panel Navigation
 .nav {
-    background:$gray-main;
+    background:$neutral-800;
     width:240px;
     height:100vh;
     overflow:auto;
     position:fixed;
-    top:0px;
+    top:45px;
     left:0px;
 
     a {
@@ -100,7 +111,7 @@ a {
                 justify-content: space-between;
                 width:100%;
                 align-items: center;
-                border-top:1px solid $gray-800;
+                border-top:1px solid $neutral-main;
 
                 span {
                     display:flex;
@@ -112,7 +123,7 @@ a {
                 }
 
                 &:hover {
-                    background:$gray-800;
+                    background:$neutral-main;
                 }
             }
 
@@ -178,14 +189,16 @@ table.datatable {
 .panel-container {
     padding:30px 30px 30px 270px;
     width:100%;
+    gap:20px;
+    display:flex;
+    flex-direction: column;
 }
 
 .form-container {
     border-radius:5px;
     background:$white;
     width:100%;
-    padding:20px;
-    margin-bottom:20px;
+    padding:20px 30px;
 }
 
 .login-container {
@@ -213,14 +226,14 @@ input[type="text"], input[type="password"], input[type="date"], textarea, select
 
     &:focus {
         border:1px solid $purple-500;
-        box-shadow: 0px 0px 0px 5px $purple-200;
+        box-shadow: 0px 0px 0px 5px rgba($purple-500, 0.2)
     }
 
     &.error {
         border:1px solid $red-500;
         
         &:focus {
-            box-shadow:0px 0px 0px 5px $red-200; 
+            box-shadow:0px 0px 0px 5px rgba($red-500, 0.2); 
         }
     }
 }
@@ -265,5 +278,186 @@ input[type="text"], input[type="password"], input[type="date"], textarea, select
             background:$purple-600;
             color:$white;
         }
+    }
+}
+
+//Alert Box
+@mixin alert($border-color,$background-color,$text-color) {
+    padding:15px;
+    display:flex;
+    align-items: center;
+    border:1px solid $border-color;
+    color:$text-color;
+    background:$background-color;
+    border-radius:3px;
+    width:100%;
+
+    i {
+        margin-right:5px;
+    }
+}
+
+.alert-info {
+    @include alert($blue-600, $blue-200, $blue-main);
+}
+
+.alert-success {
+    @include alert($green-600, $green-200, $green-main);
+}
+
+.alert-error {
+    @include alert($red-600, $red-200, $red-main);
+}
+
+//Info Box
+.info-container {
+    display:flex;
+    gap:15px;
+}
+
+.info-box {
+    width:100%;
+    display:flex;
+    gap:20px;
+    align-items: center;
+    padding:20px;
+    border-radius: 5px;
+    background:$white;
+    
+    i {
+        font-size:32px;
+    }
+
+    .info-text {
+        display:flex;
+        flex-direction: column;
+
+        h5 {
+            font-size:12px;
+            font-weight:300;
+        }
+
+        span {
+            font-size:26px;
+            font-weight:600;
+        }
+    }
+}
+
+//Panel Header
+.panel-header {
+    display:flex;
+    justify-content: space-between;
+    padding:20px 40px;
+    background:$white;
+    align-items: center;
+    margin-left:240px;
+}
+
+.header-title {
+    display:flex;
+    gap:40px;
+    align-items: center;
+
+    h1 {
+        font-size:22px;
+        font-weight:600;
+    }
+}
+
+ul.header-icon-nav {
+    display:flex;
+    gap:20px;
+    font-size:16px;
+
+    li {
+        display:flex;
+
+        a {
+            display:flex;
+            gap:5px;
+        }
+    }
+}
+
+.search-form {
+    display:flex;
+    align-items: center;
+    position:relative;
+
+    form {
+        display:flex;
+        align-items: center;
+    }
+
+    input[type="text"] {
+        width:400px;
+    }
+
+    button {
+        position:absolute;
+        right:5px;
+        padding:10px;
+        background:transparent;
+        border:none;
+        font-size:20px;
+        color:$gray-800;
+        opacity:0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+//Admin Bar
+.admin-bar {
+    display:flex;
+    height:45px;
+    padding:0 20px;
+    align-items: center;
+    background:$neutral-main;
+    justify-content: space-between;
+    font-size:12px;
+    position:fixed;
+    top:0px;
+    width:100%;
+    z-index:99;
+}
+
+ul.admin-menu {
+    display:flex;
+    gap:30px;
+
+    li {
+        display:flex;
+        
+        a {
+            display:flex;
+            color:$white;
+            align-items: center;
+            gap:5px;
+
+            i {
+                font-size:15px;
+            }
+        }
+    }
+}
+
+a.admin-user {
+    height:30px;
+    display:flex;
+    gap:10px;
+    background:$white;
+    color:$neutral-main;
+    border-radius:30px;
+    align-items: center;
+    padding:0 15px 0 3px;
+
+    img {
+        width:25px;
+        height:25px;
+        border-radius:100%;
     }
 }
