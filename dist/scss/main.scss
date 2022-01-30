@@ -22,7 +22,7 @@ a {
     color: $black;
 
     &:hover {
-        color:$purple-main;
+        color:$blue-600;
     }
 }
 
@@ -226,8 +226,8 @@ input[type="text"], input[type="password"], input[type="date"], textarea, select
     outline: none;
 
     &:focus {
-        border:1px solid $purple-500;
-        box-shadow: 0px 0px 0px 5px rgba($purple-500, 0.2)
+        border:1px solid $blue-500;
+        box-shadow: 0px 0px 0px 5px rgba($blue-500, 0.2)
     }
 
     &.error {
@@ -446,19 +446,47 @@ ul.admin-menu {
     }
 }
 
-a.admin-user {
-    height:30px;
-    display:flex;
-    gap:10px;
-    background:$white;
-    color:$neutral-main;
-    border-radius:30px;
-    align-items: center;
-    padding:0 15px 0 3px;
+.admin-user {
+    position:relative;
 
-    img {
-        width:25px;
-        height:25px;
-        border-radius:100%;
+    .admin-user-title {
+        height:30px;
+        display:flex;
+        gap:10px;
+        background:$white;
+        color:$neutral-main;
+        border-radius:30px;
+        align-items: center;
+        padding:0 15px 0 3px;
+        position:relative;
+
+        img {
+            width:25px;
+            height:25px;
+            border-radius:100%;
+        }
+    }
+
+    .sub-menu {
+        padding-top:35px;
+        position:absolute;
+        left:0px;
+        top:0px;
+        display:none;
+        flex-direction: column;
+
+        ul {
+            padding:15px;
+            background:$white;
+            display:flex;
+            flex-direction: column;
+            border-radius:5px;
+            box-shadow:0 0 10px rgba($black, 0.2);
+            gap:5px;
+        }
+    }
+
+    &:hover .sub-menu {
+        display:flex;
     }
 }
