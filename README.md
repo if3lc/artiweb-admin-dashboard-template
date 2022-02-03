@@ -1,3 +1,3 @@
-# Artiweb - Admin Panel
+# Artiweb - Admin Dashboard Template
 
 Work in progress 😎
